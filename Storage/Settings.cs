@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Storage
 {
-    public partial class Form1 : Form
+    public partial class Settings : Form
     {
-        public Form1()
+        public Settings()
         {
             InitializeComponent();
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
         }
     }
 }
