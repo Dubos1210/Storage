@@ -25,7 +25,7 @@ namespace Storage.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -46,25 +46,25 @@ namespace Storage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Unlocked {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AskPassword {
             get {
-                return ((bool)(this["Unlocked"]));
+                return ((bool)(this["AskPassword"]));
             }
             set {
-                this["Unlocked"] = value;
+                this["AskPassword"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Server {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LocalServer {
             get {
-                return ((bool)(this["Server"]));
+                return ((bool)(this["LocalServer"]));
             }
             set {
-                this["Server"] = value;
+                this["LocalServer"] = value;
             }
         }
         
@@ -80,30 +80,39 @@ namespace Storage.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Storage")]
         public string MySQLDatabase {
             get {
                 return ((string)(this["MySQLDatabase"]));
             }
+            set {
+                this["MySQLDatabase"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("root")]
         public string MySQLUser {
             get {
                 return ((string)(this["MySQLUser"]));
             }
+            set {
+                this["MySQLUser"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MySQLPassword {
             get {
                 return ((string)(this["MySQLPassword"]));
+            }
+            set {
+                this["MySQLPassword"] = value;
             }
         }
     }

@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainMenuBar = new System.Windows.Forms.MenuStrip();
             this.системаХраненияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обновитьКаталогToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.параметрыСервераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыБазыДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПарольToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,13 +47,13 @@
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.statuslbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.titletxt = new System.Windows.Forms.TextBox();
-            this.areacombo = new System.Windows.Forms.ComboBox();
-            this.containercombo = new System.Windows.Forms.ComboBox();
-            this.commenttxt = new System.Windows.Forms.RichTextBox();
-            this.savebtn = new System.Windows.Forms.Button();
-            this.quantitynum = new System.Windows.Forms.NumericUpDown();
             this.newbtn = new System.Windows.Forms.Button();
+            this.quantitynum = new System.Windows.Forms.NumericUpDown();
+            this.savebtn = new System.Windows.Forms.Button();
+            this.commenttxt = new System.Windows.Forms.RichTextBox();
+            this.containercombo = new System.Windows.Forms.ComboBox();
+            this.areacombo = new System.Windows.Forms.ComboBox();
+            this.titletxt = new System.Windows.Forms.TextBox();
             this.MainMenuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.StatusBar.SuspendLayout();
@@ -115,7 +114,6 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.параметрыСервераToolStripMenuItem,
             this.параметрыБазыДанныхToolStripMenuItem,
             this.сменитьПарольToolStripMenuItem});
             this.настройкиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("настройкиToolStripMenuItem.Image")));
@@ -123,22 +121,19 @@
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
-            // параметрыСервераToolStripMenuItem
-            // 
-            this.параметрыСервераToolStripMenuItem.Name = "параметрыСервераToolStripMenuItem";
-            this.параметрыСервераToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.параметрыСервераToolStripMenuItem.Text = "Параметры сервера";
-            // 
             // параметрыБазыДанныхToolStripMenuItem
             // 
+            this.параметрыБазыДанныхToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("параметрыБазыДанныхToolStripMenuItem.Image")));
             this.параметрыБазыДанныхToolStripMenuItem.Name = "параметрыБазыДанныхToolStripMenuItem";
-            this.параметрыБазыДанныхToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.параметрыБазыДанныхToolStripMenuItem.Text = "Параметры базы данных";
+            this.параметрыБазыДанныхToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.параметрыБазыДанныхToolStripMenuItem.Text = "Общие настройки";
+            this.параметрыБазыДанныхToolStripMenuItem.Click += new System.EventHandler(this.параметрыБазыДанныхToolStripMenuItem_Click);
             // 
             // сменитьПарольToolStripMenuItem
             // 
+            this.сменитьПарольToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сменитьПарольToolStripMenuItem.Image")));
             this.сменитьПарольToolStripMenuItem.Name = "сменитьПарольToolStripMenuItem";
-            this.сменитьПарольToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.сменитьПарольToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.сменитьПарольToolStripMenuItem.Text = "Сменить пароль";
             this.сменитьПарольToolStripMenuItem.Click += new System.EventHandler(this.сменитьПарольToolStripMenuItem_Click);
             // 
@@ -189,14 +184,14 @@
             this.MainGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MainGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MainGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.MainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MainGrid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MainGrid.Location = new System.Drawing.Point(12, 27);
@@ -240,47 +235,15 @@
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // titletxt
+            // newbtn
             // 
-            this.titletxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titletxt.Location = new System.Drawing.Point(4, 4);
-            this.titletxt.Name = "titletxt";
-            this.titletxt.Size = new System.Drawing.Size(150, 23);
-            this.titletxt.TabIndex = 0;
-            // 
-            // areacombo
-            // 
-            this.areacombo.FormattingEnabled = true;
-            this.areacombo.Location = new System.Drawing.Point(4, 34);
-            this.areacombo.Name = "areacombo";
-            this.areacombo.Size = new System.Drawing.Size(222, 21);
-            this.areacombo.TabIndex = 1;
-            // 
-            // containercombo
-            // 
-            this.containercombo.FormattingEnabled = true;
-            this.containercombo.Location = new System.Drawing.Point(4, 62);
-            this.containercombo.Name = "containercombo";
-            this.containercombo.Size = new System.Drawing.Size(222, 21);
-            this.containercombo.TabIndex = 2;
-            // 
-            // commenttxt
-            // 
-            this.commenttxt.Location = new System.Drawing.Point(232, 4);
-            this.commenttxt.Name = "commenttxt";
-            this.commenttxt.Size = new System.Drawing.Size(381, 79);
-            this.commenttxt.TabIndex = 3;
-            this.commenttxt.Text = "";
-            // 
-            // savebtn
-            // 
-            this.savebtn.Location = new System.Drawing.Point(619, 32);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(106, 23);
-            this.savebtn.TabIndex = 4;
-            this.savebtn.Text = "Сохранить";
-            this.savebtn.UseVisualStyleBackColor = true;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
+            this.newbtn.Location = new System.Drawing.Point(619, 5);
+            this.newbtn.Name = "newbtn";
+            this.newbtn.Size = new System.Drawing.Size(106, 23);
+            this.newbtn.TabIndex = 6;
+            this.newbtn.Text = "Новый";
+            this.newbtn.UseVisualStyleBackColor = true;
+            this.newbtn.Click += new System.EventHandler(this.newbtn_Click);
             // 
             // quantitynum
             // 
@@ -294,15 +257,47 @@
             this.quantitynum.Size = new System.Drawing.Size(66, 20);
             this.quantitynum.TabIndex = 5;
             // 
-            // newbtn
+            // savebtn
             // 
-            this.newbtn.Location = new System.Drawing.Point(619, 5);
-            this.newbtn.Name = "newbtn";
-            this.newbtn.Size = new System.Drawing.Size(106, 23);
-            this.newbtn.TabIndex = 6;
-            this.newbtn.Text = "Новый";
-            this.newbtn.UseVisualStyleBackColor = true;
-            this.newbtn.Click += new System.EventHandler(this.newbtn_Click);
+            this.savebtn.Location = new System.Drawing.Point(619, 32);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(106, 23);
+            this.savebtn.TabIndex = 4;
+            this.savebtn.Text = "Сохранить";
+            this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
+            // 
+            // commenttxt
+            // 
+            this.commenttxt.Location = new System.Drawing.Point(232, 4);
+            this.commenttxt.Name = "commenttxt";
+            this.commenttxt.Size = new System.Drawing.Size(381, 79);
+            this.commenttxt.TabIndex = 3;
+            this.commenttxt.Text = "";
+            // 
+            // containercombo
+            // 
+            this.containercombo.FormattingEnabled = true;
+            this.containercombo.Location = new System.Drawing.Point(4, 62);
+            this.containercombo.Name = "containercombo";
+            this.containercombo.Size = new System.Drawing.Size(222, 21);
+            this.containercombo.TabIndex = 2;
+            // 
+            // areacombo
+            // 
+            this.areacombo.FormattingEnabled = true;
+            this.areacombo.Location = new System.Drawing.Point(4, 34);
+            this.areacombo.Name = "areacombo";
+            this.areacombo.Size = new System.Drawing.Size(222, 21);
+            this.areacombo.TabIndex = 1;
+            // 
+            // titletxt
+            // 
+            this.titletxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titletxt.Location = new System.Drawing.Point(4, 4);
+            this.titletxt.Name = "titletxt";
+            this.titletxt.Size = new System.Drawing.Size(150, 23);
+            this.titletxt.TabIndex = 0;
             // 
             // Main
             // 
@@ -340,7 +335,6 @@
         private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem параметрыСервераToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem параметрыБазыДанныхToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сменитьПарольToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;

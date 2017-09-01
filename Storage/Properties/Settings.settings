@@ -3,27 +3,27 @@
   <Profiles />
   <Settings>
     <Setting Name="Version" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0.1</Value>
+      <Value Profile="(Default)">1.0</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">d41d8cd98f00b204e9800998ecf8427e</Value>
     </Setting>
-    <Setting Name="Unlocked" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="AskPassword" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Server" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="LocalServer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ServerIP" Type="System.String" Scope="User">
       <Value Profile="(Default)">127.0.0.1</Value>
     </Setting>
-    <Setting Name="MySQLDatabase" Type="System.String" Scope="Application">
+    <Setting Name="MySQLDatabase" Type="System.String" Scope="User">
       <Value Profile="(Default)">Storage</Value>
     </Setting>
-    <Setting Name="MySQLUser" Type="System.String" Scope="Application">
+    <Setting Name="MySQLUser" Type="System.String" Scope="User">
       <Value Profile="(Default)">root</Value>
     </Setting>
-    <Setting Name="MySQLPassword" Type="System.String" Scope="Application">
+    <Setting Name="MySQLPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

@@ -21,6 +21,7 @@ namespace Storage
 
         //Variables
         public bool unlocked = false;
+        public string checkedid = "0";
               
         public void GridRefresh() {
             string Connect = "Database="+Properties.Settings.Default.MySQLDatabase+";Data Source=" + Properties.Settings.Default.ServerIP + ";User Id=" + Properties.Settings.Default.MySQLUser + ";Password=" + Properties.Settings.Default.MySQLPassword;
@@ -31,7 +32,7 @@ namespace Storage
                 myConnection.Open();
             }
             catch (MySql.Data.MySqlClient.MySqlException ex) {
-                statuslbl.Text = "Jшибка подключения к базе данных";
+                statuslbl.Text = "Ошибка подключения к базе данных";
             }
 
             MainGrid.ReadOnly = false;
@@ -48,11 +49,43 @@ namespace Storage
                 }
                 MyDataReader.Close();
             }
-            catch (System.InvalidOperationException ex) {
+            catch (System.InvalidOperationException) {
                 statuslbl.Text = "Ошибка работы с MySQL";
             }
 
             MainGrid.ReadOnly = true;
+
+            MySqlCommand myCommand2 = new MySqlCommand("SELECT `area` FROM `mainstorage` GROUP BY `area` ORDER BY `area`", myConnection);
+            MySqlDataReader MyDataReader2;
+            try
+            {
+                MyDataReader2 = myCommand2.ExecuteReader();
+                while (MyDataReader2.Read())
+                {
+                    areacombo.Items.Add(MyDataReader2.GetString(0));
+                }
+                MyDataReader2.Close();
+            }
+            catch (System.InvalidOperationException)
+            {
+                statuslbl.Text = "Ошибка работы с MySQL";
+            }
+
+            MySqlCommand myCommand3 = new MySqlCommand("SELECT  `container` FROM `mainstorage` GROUP BY `container` ORDER BY `container`", myConnection);
+            MySqlDataReader MyDataReader3;
+            try
+            {
+                MyDataReader3 = myCommand3.ExecuteReader();
+                while (MyDataReader3.Read())
+                {
+                    containercombo.Items.Add(MyDataReader3.GetString(0));
+                }
+                MyDataReader3.Close();
+            }
+            catch (System.InvalidOperationException)
+            {
+                statuslbl.Text = "Ошибка работы с MySQL";
+            }
 
             myConnection.Close();
         }
@@ -60,21 +93,22 @@ namespace Storage
         private void Main_Load(object sender, EventArgs e)
         {
             //login
-            statuslbl.Text = "Введите пароль";
-            MD5 md5Hash = MD5.Create();
-            while (!unlocked)
-            {
-                InputBox.InputBox inputBox = new InputBox.InputBox("Введите пароль:");
-                if (GetMd5Hash(md5Hash, inputBox.getString()) == Properties.Settings.Default.Password)
+            if (Properties.Settings.Default.AskPassword == true) {
+                statuslbl.Text = "Введите пароль";
+                MD5 md5Hash = MD5.Create();
+                while (!unlocked)
                 {
-                    unlocked = true;
+                    InputBox.InputBox inputBox = new InputBox.InputBox("Введите пароль:");
+                    if (GetMd5Hash(md5Hash, inputBox.getString()) == Properties.Settings.Default.Password)
+                    {
+                        unlocked = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Проверьте правильность ввода пароля!", "Вход в систему", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Проверьте правильность ввода пароля!", "Вход в систему", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                }               
             }
-
 
             //Grid
             var id = new DataGridViewColumn();
@@ -84,7 +118,7 @@ namespace Storage
             id.Name = "id";
             id.Frozen = true;
             id.CellTemplate = new DataGridViewTextBoxCell();
-            MainGrid.Columns.Add(id); 
+            MainGrid.Columns.Add(id);
 
              var column1 = new DataGridViewColumn();
             column1.HeaderText = "Наименование";
@@ -243,11 +277,15 @@ namespace Storage
 
         private void MainGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            titletxt.Text = MainGrid[1, MainGrid.CurrentRow.Index].Value.ToString();
-            quantitynum.Value = Convert.ToInt32(MainGrid[2, MainGrid.CurrentRow.Index].Value.ToString());
-            commenttxt.Text = MainGrid[3, MainGrid.CurrentRow.Index].Value.ToString();
-            areacombo.Text = MainGrid[4, MainGrid.CurrentRow.Index].Value.ToString();
-            containercombo.Text = MainGrid[5, MainGrid.CurrentRow.Index].Value.ToString();
+            try {
+                checkedid = MainGrid[0, MainGrid.CurrentRow.Index].Value.ToString();
+                titletxt.Text = MainGrid[1, MainGrid.CurrentRow.Index].Value.ToString();
+                quantitynum.Value = Convert.ToInt32(MainGrid[2, MainGrid.CurrentRow.Index].Value.ToString());
+                commenttxt.Text = MainGrid[3, MainGrid.CurrentRow.Index].Value.ToString();
+                areacombo.Text = MainGrid[4, MainGrid.CurrentRow.Index].Value.ToString();
+                containercombo.Text = MainGrid[5, MainGrid.CurrentRow.Index].Value.ToString();
+            }
+            catch (System.NullReferenceException) { }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -280,17 +318,23 @@ namespace Storage
             try
             {
                 myConnection.Open();
+                MySqlCommand myCommand = new MySqlCommand("UPDATE `storage`.`mainstorage` SET `title` = '" + titletxt.Text + "', `quantity` = '" + quantitynum.Value.ToString() + "', `comment` = '" + commenttxt.Text + "', `area` = '" + areacombo.Text + "', `container` = '" + containercombo.Text + "' WHERE `mainstorage`.`id` = " + checkedid, myConnection);
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 statuslbl.Text = "Ошибка подключения к базе данных";
             }
 
-            MySqlCommand myCommand = new MySqlCommand("INSERT INTO `storage`.`mainstorage` (`id` , `title` , `quantity` , `comment` , `area` , `container` , `date`) VALUES (NULL, '" + titletxt.Text + "', '" + quantitynum.Value.ToString() + "', '" + commenttxt.Text + "', '" + areacombo.Text + "', '" + containercombo.Text + "', '')", myConnection);
-            myCommand.ExecuteNonQuery();
-            myConnection.Close();
-
+            
             GridRefresh();
+        }
+
+        private void параметрыБазыДанныхToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Set set = new Set();
+            set.Show();
         }
     }
 }
