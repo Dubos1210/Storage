@@ -54,6 +54,7 @@
             this.containercombo = new System.Windows.Forms.ComboBox();
             this.areacombo = new System.Windows.Forms.ComboBox();
             this.titletxt = new System.Windows.Forms.TextBox();
+            this.сообщитьОбОшибкеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.StatusBar.SuspendLayout();
@@ -164,6 +165,7 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сообщитьОбОшибкеToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
@@ -175,7 +177,7 @@
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.ShortcutKeyDisplayString = "F1";
             this.оПрограммеToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -299,6 +301,14 @@
             this.titletxt.Size = new System.Drawing.Size(150, 23);
             this.titletxt.TabIndex = 0;
             // 
+            // сообщитьОбОшибкеToolStripMenuItem
+            // 
+            this.сообщитьОбОшибкеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сообщитьОбОшибкеToolStripMenuItem.Image")));
+            this.сообщитьОбОшибкеToolStripMenuItem.Name = "сообщитьОбОшибкеToolStripMenuItem";
+            this.сообщитьОбОшибкеToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.сообщитьОбОшибкеToolStripMenuItem.Text = "Сообщить об ошибке";
+            this.сообщитьОбОшибкеToolStripMenuItem.Click += new System.EventHandler(this.сообщитьОбОшибкеToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,6 +364,7 @@
         private System.Windows.Forms.Button savebtn;
         private System.Windows.Forms.NumericUpDown quantitynum;
         private System.Windows.Forms.Button newbtn;
+        private System.Windows.Forms.ToolStripMenuItem сообщитьОбОшибкеToolStripMenuItem;
     }
 }
 

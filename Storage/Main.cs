@@ -55,6 +55,7 @@ namespace Storage
 
             MainGrid.ReadOnly = true;
 
+            areacombo.Items.Clear();
             MySqlCommand myCommand2 = new MySqlCommand("SELECT `area` FROM `mainstorage` GROUP BY `area` ORDER BY `area`", myConnection);
             MySqlDataReader MyDataReader2;
             try
@@ -71,6 +72,7 @@ namespace Storage
                 statuslbl.Text = "Ошибка работы с MySQL";
             }
 
+            containercombo.Items.Clear();
             MySqlCommand myCommand3 = new MySqlCommand("SELECT  `container` FROM `mainstorage` GROUP BY `container` ORDER BY `container`", myConnection);
             MySqlDataReader MyDataReader3;
             try
@@ -335,6 +337,12 @@ namespace Storage
         {
             Set set = new Set();
             set.Show();
+        }
+
+        private void сообщитьОбОшибкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bugreport report = new Bugreport();
+            report.Show();
         }
     }
 }
